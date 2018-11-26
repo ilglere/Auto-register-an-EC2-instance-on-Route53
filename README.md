@@ -50,7 +50,7 @@ wget https://github.com/barnybug/cli53/releases/download/0.8.12/cli53-linux-amd6
 chown root:root /usr/local/cli53-linux-amd64
 chmod 700 /usr/local/cli53-linux-amd64
 ```
-3. Create a link to /usr/bin
+3. Create a link to /usr/bin/cli53
 ```
 ln /usr/local/cli53-linux-amd64 /usr/bin
 ```
