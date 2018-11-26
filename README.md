@@ -1,5 +1,5 @@
 # Auto-register-an-EC2-instance-on-Route53
-A simple script to auto-register your EC2 instances on ROute 53 service.
+A simple script to auto-register your EC2 instances on Route 53 service.
 # Installation
 1. First, we need to install cli53 to run this script.
 So, download the leatest version from https://github.com/barnybug/cli53/releases/download/ anfd put it in /usr/local
@@ -28,4 +28,6 @@ chmod 600 /etc/route53/config
 chmod a+x /etc/route53/get_ec2_info.sh
 chmod a+x /etc/route53/main.sh
 ```
-6. Modify config file according to your needs
+6. Modify config file according to your needs:
+  - Insert "Access key ID" and "Secret access key" of dns-editor user created before
+  - Insert your own DNS zone
