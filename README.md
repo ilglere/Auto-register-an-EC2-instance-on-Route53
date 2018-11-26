@@ -8,4 +8,24 @@ cd /usr/local/
 wget https://github.com/barnybug/cli53/releases/download/0.8.12/cli53-linux-amd64
 ```
 2. Chown it using root and chmod it with 700
+```
+chown root:root /usr/local/cli53-linux-amd64
+chmod 700 /usr/local/cli53-linux-amd64
+```
 3. Create a link to /usr/bin
+```
+ln /usr/local/cli53-linux-amd64 /usr/bin
+```
+4. Create a new folder called route53 in /etc/ , and download this repo
+```
+mkdir /etc/route53
+git clone https://github.com/ilglere/Auto-register-an-EC2-instance-on-Route53.git
+mv Auto-register-an-EC2-instance-on-Route53/* ./*
+```
+5. Modify permissions to config file and make .sh scripts execitables
+```
+chmod 600 /etc/route53/config
+chmod a+x /etc/route53/get_ec2_info.sh
+chmod a+x /etc/route53/main.sh
+```
+6. Modify config file according to your needs
