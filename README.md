@@ -28,6 +28,13 @@ chmod 600 /etc/route53/config
 chmod a+x /etc/route53/get_ec2_info.sh
 chmod a+x /etc/route53/main.sh
 ```
-6. Modify config file according to your needs:
-.Insert "Access key ID" and "Secret access key" of dns-editor user created before
-.Insert your own DNS zone
+6. Modify config file according to your needs: (insert "Access key ID" and "Secret access key" of dns-editor user created before & insert your own DNS zone)
+7. Create a link of main.sh script to /etc/dhcp/dhclient-exit-hooks.d/
+```
+ln /etc/route53/main.sh /etc/dhcp/dhclient-exit-hooks.d/update-route53-dns
+```
+8. Modify crontab for running main.sh script when instance boots up.
+```
+corntab -e
+@reboot ln /etc/route53/main.sh
+```
