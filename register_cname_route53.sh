@@ -7,7 +7,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # Load configuration
-. /etc/route53/config
+. /etc/route53-cname/config
 
 # Export access key ID and secret for cli53
 export AWS_ACCESS_KEY_ID
