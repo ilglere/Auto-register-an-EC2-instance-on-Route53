@@ -18,9 +18,7 @@ INSTANCE_ID=$(ec2metadata | grep 'instance-id:' | cut -d ' ' -f 2)
 PUBLIC_HOSTNAME=$(ec2metadata | grep 'public-hostname:' | cut -d ' ' -f 2)
 PUBLIC_HOSTNAME_DOT="$PUBLIC_HOSTNAME""." # Adding a dot at the end of the hostname, necessary to create a CNAME record
 
+CNAME_RECORD="$INSTANCE_ID $TTL CNAME $PUBLIC_HOSTNAME_DOT"
+
 # Create a new CNAME record on Route 53, replacing the old entry if nessesary
-## This akward code is necessary to pass variables to cli53 command, otherwise you'll get syntax error
-cp /etc/route53/get_ec2_info.sh /etc/route53/run_cli53.sh
-echo "cli53 rc --replace $ZONE '$INSTANCE_ID $TTL $TYPE $PUBLIC_HOSTNAME_DOT'" >> /etc/route53/run_cli53.sh
-chmod a+x /etc/route53/run_cli53.sh
-/etc/route53/run_cli53.sh
+cli53 rrcreate --replace "$ZONE" "$CNAME_RECORD"
