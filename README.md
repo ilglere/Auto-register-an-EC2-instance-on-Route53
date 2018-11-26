@@ -54,24 +54,23 @@ chmod 700 /usr/local/cli53-linux-amd64
 ```
 ln /usr/local/cli53-linux-amd64 /usr/bin
 ```
-4. Create a new folder called route53 in /etc/ , and download this repo
+4. Download this repo on/etc/
 ```
-mkdir /etc/route53
-git clone https://github.com/ilglere/Auto-register-an-EC2-instance-on-Route53.git
-mv Auto-register-an-EC2-instance-on-Route53/* ./*
+cd /etc
+git clone https://github.com/ilglere/route53-cname.git
 ```
 5. Modify permissions to config file and make .sh scripts execitables
 ```
-chmod 600 /etc/route53/config
-chmod a+x /etc/route53/register_cname_route53.sh
+chmod 600 /etc/route53-cname/config
+chmod a+x /etc/route53-cname/register_cname_route53.sh
 ```
 6. Modify config file according to your needs: (insert "Access key ID" and "Secret access key" of dns-editor user created before & insert your own DNS zone)
 7. Create a link of main.sh script to /etc/dhcp/dhclient-exit-hooks.d/
 ```
-ln /etc/route53/register_cname_route53.sh /etc/dhcp/dhclient-exit-hooks.d/update-route53-dns
+ln /etc/route53-cname/register_cname_route53.sh /etc/dhcp/dhclient-exit-hooks.d/update-route53-dns
 ```
 8. Modify crontab for running main.sh script when instance boots up.
 ```
 crontab -e
-@reboot ln /etc/route53/register_cname_route53.sh
+@reboot ln /etc/route53-cname/register_cname_route53.sh
 ```
