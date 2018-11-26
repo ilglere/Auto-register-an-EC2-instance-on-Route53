@@ -72,6 +72,6 @@ ln /etc/route53/register_cname_route53.sh /etc/dhcp/dhclient-exit-hooks.d/update
 ```
 8. Modify crontab for running main.sh script when instance boots up.
 ```
-corntab -e
+crontab -e
 @reboot ln /etc/route53/register_cname_route53.sh
 ```
