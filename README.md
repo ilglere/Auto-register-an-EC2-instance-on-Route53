@@ -40,7 +40,7 @@ First of all we need to create an IAM user, with an associated policy.
 Now we are ready to download and config the script.
 # Installation
 1. First, we need to install cli53 to run this script.
-So, download the leatest version from https://github.com/barnybug/cli53/releases/ anfd put it in /usr/local (on the examples below I downloaded version 0.8.12 for linux-amd64)
+So, download the leatest version from https://github.com/barnybug/cli53/releases/ and put it in /usr/local (on the examples below I downloaded version 0.8.12 for linux-amd64)
 ```
 cd /usr/local/
 wget https://github.com/barnybug/cli53/releases/download/0.8.12/cli53-linux-amd64
