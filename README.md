@@ -5,7 +5,38 @@ Are you are searching for a method to access to your instances, without using El
 You will be able to access to your instances by point to: instance_name.my.zone.dns (instead of: ec2-xxx-xxx-xxx-xxx.eu-west-1.compute.amazonaws.com). Where "xxx-xxx-xxx-xxx" is the dynamic public IP.
 # Pre-requisites
 First of all we need to create an IAM user, with an associated policy.
-1. 
+1. Create a new IAM group called "dns-editor-group" (or whatever you want)
+2. Create a new IAM policy called "dns-editor-policy" (or whatever you want) attaching this JSON (where <Your zone ID> is your ID of the DNS zone on Route 53):
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "route53:ChangeResourceRecordSets",
+                "route53:GetHostedZone",
+                "route53:ListResourceRecordSets"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:route53:::hostedzone/<Your zone ID>"
+            ]
+        },
+        {
+            "Action": [
+                "route53:ListHostedZonesByName"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+3. Create a new IAM user called "dns-editor" (or whatever you want) and remember to download its credentials and store them in a save place.
+
+Now we are ready to download and config the script.
 # Installation
 1. First, we need to install cli53 to run this script.
 So, download the leatest version from https://github.com/barnybug/cli53/releases/download/ anfd put it in /usr/local
