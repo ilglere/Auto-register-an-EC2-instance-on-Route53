@@ -1,4 +1,4 @@
-# Auto-register-an-EC2-instance-on-Route53
+# Auto register a CNAME record of EC2 instance on Route53
 This script allows you to automatically register a CNAME record, on Route 53, with the public DNS (IPv4) of your instance.
 
 Are you are searching for a method to access to your instances by pointing to a static DNS record, without using an Elastic IP? Well, this script is made for you!
