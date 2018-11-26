@@ -1,0 +1,5 @@
+AWS_ACCESS_KEY_ID="dns-editor_ACCESS-KEY"
+AWS_SECRET_ACCESS_KEY="dns-editor_SECRET-ACCESS-KEY"
+ZONE="your.dns.zone" #EXAMPLE: aws.acme.com
+TTL=600
+TYPE=CNAME
