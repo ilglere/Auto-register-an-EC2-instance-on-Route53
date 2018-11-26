@@ -29,5 +29,5 @@ chmod a+x /etc/route53/get_ec2_info.sh
 chmod a+x /etc/route53/main.sh
 ```
 6. Modify config file according to your needs:
-  6.1. Insert "Access key ID" and "Secret access key" of dns-editor user created before
-  6.2. Insert your own DNS zone
+.Insert "Access key ID" and "Secret access key" of dns-editor user created before
+.Insert your own DNS zone
