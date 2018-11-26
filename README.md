@@ -1,5 +1,11 @@
 # Auto-register-an-EC2-instance-on-Route53
-A simple script to auto-register your EC2 instances on Route 53 service.
+This script allows you to automatically register a CNAME record, on Route 53, with the public DNS (IPv4) of your instance.
+Are you are searching for a method to access to your instances, without using Elastic IP, by pointing to a static DNS record? Well, this script could be for you!
+
+You will be able to access to your instances by point to: instance_name.my.zone.dns (instead of: ec2-xxx-xxx-xxx-xxx.eu-west-1.compute.amazonaws.com). Where "xxx-xxx-xxx-xxx" is the dynamic public IP.
+# Pre-requisites
+First of all we need to create an IAM user, with an associated policy.
+1. 
 # Installation
 1. First, we need to install cli53 to run this script.
 So, download the leatest version from https://github.com/barnybug/cli53/releases/download/ anfd put it in /usr/local
