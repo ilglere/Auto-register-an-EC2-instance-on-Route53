@@ -52,7 +52,7 @@ chmod 700 /usr/local/cli53-linux-amd64
 ```
 3. Create a link to /usr/bin/cli53
 ```
-ln /usr/local/cli53-linux-amd64 /usr/bin
+ln /usr/local/cli53-linux-amd64 /usr/bin/cli53
 ```
 4. Download this repo on/etc/
 ```
